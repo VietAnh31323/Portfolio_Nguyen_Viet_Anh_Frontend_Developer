@@ -103,7 +103,7 @@ export default function Contact() {
               <div className="mt-10">
                 <a
                   href={`mailto:${shared.email}`}
-                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent to-cyan px-7 py-3.5 font-semibold text-bg transition-transform hover:scale-[1.03]"
+                  className="btn-shine inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent to-cyan px-7 py-3.5 font-semibold text-bg transition-transform hover:scale-[1.03]"
                 >
                   <MailIcon className="h-5 w-5" />
                   {t.ui.sayHello}

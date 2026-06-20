@@ -35,11 +35,26 @@ const config: Config = {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
         },
+        drift: {
+          '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+          '33%': { transform: 'translate(40px, -30px) scale(1.1)' },
+          '66%': { transform: 'translate(-30px, 20px) scale(0.95)' },
+        },
+        'drift-2': {
+          '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+          '50%': { transform: 'translate(-50px, -25px) scale(1.15)' },
+        },
+        shine: {
+          '0%': { transform: 'translateX(-120%)' },
+          '60%, 100%': { transform: 'translateX(220%)' },
+        },
       },
       animation: {
         'fade-up': 'fade-up 0.7s ease-out forwards',
         float: 'float 6s ease-in-out infinite',
         'gradient-pan': 'gradient-pan 8s ease infinite',
+        drift: 'drift 22s ease-in-out infinite',
+        'drift-2': 'drift-2 28s ease-in-out infinite',
       },
     },
   },

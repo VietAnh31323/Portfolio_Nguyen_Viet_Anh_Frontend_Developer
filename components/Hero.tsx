@@ -1,8 +1,10 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import { shared } from '@/lib/data';
 import { asset } from '@/lib/asset';
 import { useLanguage } from './LanguageProvider';
+import TypeWriter from './TypeWriter';
 import {
   ArrowDownIcon,
   DownloadIcon,
@@ -14,15 +16,60 @@ import {
 
 export default function Hero() {
   const { t } = useLanguage();
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const cardRef = useRef<HTMLDivElement | null>(null);
+  const orbARef = useRef<HTMLDivElement | null>(null);
+  const orbBRef = useRef<HTMLDivElement | null>(null);
+
+  // Subtle mouse parallax (disabled for reduced motion / touch).
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.matchMedia('(hover: none)').matches) return;
+
+    let raf = 0;
+    const onMove = (e: MouseEvent) => {
+      const rect = section.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        if (cardRef.current) {
+          cardRef.current.style.transform = `translate3d(${x * 18}px, ${y * 18}px, 0)`;
+        }
+        if (orbARef.current) {
+          orbARef.current.style.transform = `translate3d(${x * 40}px, ${y * 40}px, 0)`;
+        }
+        if (orbBRef.current) {
+          orbBRef.current.style.transform = `translate3d(${x * -32}px, ${y * -32}px, 0)`;
+        }
+      });
+    };
+
+    section.addEventListener('mousemove', onMove);
+    return () => {
+      section.removeEventListener('mousemove', onMove);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
 
   return (
     <section
+      ref={sectionRef}
       id="top"
       className="relative flex min-h-screen items-center overflow-hidden pt-16"
     >
-      {/* Decorative blurred orbs */}
-      <div className="pointer-events-none absolute -left-20 top-32 h-72 w-72 rounded-full bg-accent/20 blur-[120px]" />
-      <div className="pointer-events-none absolute -right-10 bottom-20 h-72 w-72 rounded-full bg-cyan/10 blur-[120px]" />
+      {/* Animated aurora orbs */}
+      <div
+        ref={orbARef}
+        className="pointer-events-none absolute -left-20 top-32 h-72 w-72 animate-drift rounded-full bg-accent/20 blur-[120px]"
+      />
+      <div
+        ref={orbBRef}
+        className="pointer-events-none absolute -right-10 bottom-20 h-72 w-72 animate-drift-2 rounded-full bg-cyan/10 blur-[120px]"
+      />
+      <div className="pointer-events-none absolute left-1/2 top-10 h-60 w-60 -translate-x-1/2 animate-drift rounded-full bg-violet-500/10 blur-[130px]" />
 
       <div className="container-page relative grid items-center gap-12 py-20 lg:grid-cols-[1.4fr_1fr]">
         <div className="animate-fade-up">
@@ -35,6 +82,16 @@ export default function Hero() {
               {t.profile.title}
             </span>
           </h2>
+
+          {/* Typewriter specialties */}
+          <p className="mt-3 font-mono text-sm text-slate-400 sm:text-base">
+            {t.ui.specialtiesPrefix}{' '}
+            <TypeWriter
+              words={shared.specialties}
+              className="font-semibold text-cyan"
+            />
+          </p>
+
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-400">
             {t.profile.tagline}
           </p>
@@ -42,7 +99,7 @@ export default function Hero() {
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent to-cyan px-6 py-3 font-semibold text-bg transition-transform hover:scale-[1.03]"
+              className="btn-shine inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent to-cyan px-6 py-3 font-semibold text-bg transition-transform hover:scale-[1.03]"
             >
               <MailIcon className="h-5 w-5" />
               {t.ui.contactMe}
@@ -51,7 +108,7 @@ export default function Hero() {
               href={asset(shared.resume)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl border border-border bg-surface px-6 py-3 font-semibold text-white transition-colors hover:border-accent/50"
+              className="inline-flex items-center gap-2 rounded-xl border border-border bg-surface px-6 py-3 font-semibold text-white transition-all hover:-translate-y-0.5 hover:border-accent/50"
             >
               <DownloadIcon className="h-5 w-5" />
               {t.ui.downloadCV}
@@ -77,7 +134,10 @@ export default function Hero() {
 
         {/* Code-card visual */}
         <div className="animate-fade-up [animation-delay:150ms]">
-          <div className="card-base mx-auto max-w-sm animate-float p-1 shadow-2xl shadow-accent/5">
+          <div
+            ref={cardRef}
+            className="card-base mx-auto max-w-sm animate-float p-1 shadow-2xl shadow-accent/5 transition-transform duration-200 ease-out"
+          >
             <div className="rounded-[14px] bg-bg/80 p-5 font-mono text-sm">
               <div className="mb-4 flex gap-1.5">
                 <span className="h-3 w-3 rounded-full bg-red-400/80" />

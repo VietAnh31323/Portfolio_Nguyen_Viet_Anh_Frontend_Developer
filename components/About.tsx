@@ -2,6 +2,7 @@
 
 import Section from './Section';
 import Reveal from './Reveal';
+import CountUp from './CountUp';
 import { CodeIcon } from './Icons';
 import { useLanguage } from './LanguageProvider';
 
@@ -46,9 +47,10 @@ export default function About() {
                 key={h.label}
                 className="card-base flex items-center gap-4 p-5 hover:border-accent/40"
               >
-                <span className="gradient-text text-3xl font-extrabold">
-                  {h.value}
-                </span>
+                <CountUp
+                  value={h.value}
+                  className="gradient-text min-w-[3.5rem] text-3xl font-extrabold tabular-nums"
+                />
                 <span className="text-sm leading-snug text-slate-400">
                   {h.label}
                 </span>

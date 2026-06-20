@@ -54,6 +54,42 @@ body {
     @apply rounded-2xl border border-border bg-card/60 backdrop-blur-sm transition-all duration-300;
   }
 
+  .card-base:hover {
+    box-shadow: 0 18px 50px -20px rgba(99, 102, 241, 0.35);
+  }
+
+  /* Sweeping shine for primary buttons */
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .btn-shine::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      100deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.45) 50%,
+      transparent 80%
+    );
+    transform: translateX(-120%);
+  }
+  .btn-shine:hover::after {
+    animation: shine 0.9s ease-out;
+  }
+
+  .section-underline {
+    @apply h-1 rounded-full bg-gradient-to-r from-accent to-cyan;
+    width: 0;
+    transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+  }
+  .reveal.is-visible .section-underline {
+    width: 4rem;
+  }
+
   .chip {
     @apply inline-flex items-center rounded-full border border-border bg-surface/80 px-3 py-1 text-xs font-medium text-slate-300;
   }
@@ -70,13 +106,15 @@ body {
 /* Reveal-on-scroll: start hidden, .is-visible (set by IntersectionObserver) animates in */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-  will-change: opacity, transform;
+  transform: translateY(28px) scale(0.985);
+  filter: blur(2px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out, filter 0.7s ease-out;
+  will-change: opacity, transform, filter;
 }
 .reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+  filter: blur(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -86,6 +124,22 @@ body {
   .reveal {
     opacity: 1;
     transform: none;
+    filter: none;
     transition: none;
+  }
+  .section-underline {
+    width: 4rem;
+    transition: none;
+  }
+  .animate-float,
+  .animate-drift,
+  .animate-drift-2,
+  .animate-gradient-pan,
+  .animate-bounce,
+  .animate-pulse {
+    animation: none !important;
+  }
+  .btn-shine::after {
+    display: none;
   }
 }

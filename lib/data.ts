@@ -22,6 +22,15 @@ export const shared = {
   github: 'https://github.com/VietAnh31323',
   githubUser: 'VietAnh31323',
   resume: '/NGUYEN-VIET-ANH-FRONTEND-en.pdf',
+  // Rotating words for the hero typewriter (language-neutral).
+  specialties: [
+    'React',
+    'Next.js',
+    'TypeScript',
+    'SSR / SSG',
+    'Web Performance',
+    'UI/UX',
+  ],
 };
 
 // Section anchors; visible labels come from dict[locale].ui.nav[key].
@@ -106,6 +115,7 @@ export type Dict = {
     helloEyebrow: string;
     scrollAria: string;
     switchLanguage: string;
+    specialtiesPrefix: string;
     liveSite: string;
     openFigma: string;
     designHeading: string;
@@ -232,6 +242,7 @@ const en: Dict = {
         'Responsive corporate / e-commerce website built and customized on WordPress, with bespoke layouts and interactive effects matching client branding.',
       tags: ['WordPress', 'Responsive', 'UI/UX', 'Figma'],
       highlight: false,
+      url: 'https://thuanducivm.com/',
     },
     {
       name: 'NT-Tech',
@@ -240,6 +251,7 @@ const en: Dict = {
         'Marketing and landing-page site on WordPress, cross-device compatible, with custom interactive components and design assets crafted in Figma & Photoshop.',
       tags: ['WordPress', 'Landing Page', 'SEO', 'Design'],
       highlight: false,
+      url: 'https://nt-tech.vn/',
     },
   ],
   designs: [
@@ -318,6 +330,7 @@ const en: Dict = {
     helloEyebrow: '< Hello, world />',
     scrollAria: 'Scroll to about',
     switchLanguage: 'Switch language',
+    specialtiesPrefix: 'Specialized in',
     liveSite: 'Live site',
     openFigma: 'Open in Figma',
     designHeading: 'UI/UX Design — Figma',
@@ -445,6 +458,7 @@ const vi: Dict = {
         'Website doanh nghiệp / thương mại điện tử responsive được xây dựng và tùy chỉnh trên WordPress, với bố cục riêng và hiệu ứng tương tác bám sát thương hiệu khách hàng.',
       tags: ['WordPress', 'Responsive', 'UI/UX', 'Figma'],
       highlight: false,
+      url: 'https://thuanducivm.com/',
     },
     {
       name: 'NT-Tech',
@@ -453,6 +467,7 @@ const vi: Dict = {
         'Website marketing và landing page trên WordPress, tương thích đa thiết bị, với các component tương tác tùy chỉnh và ấn phẩm thiết kế được thực hiện bằng Figma & Photoshop.',
       tags: ['WordPress', 'Landing Page', 'SEO', 'Design'],
       highlight: false,
+      url: 'https://nt-tech.vn/',
     },
   ],
   designs: [
@@ -531,6 +546,7 @@ const vi: Dict = {
     helloEyebrow: '< Hello, world />',
     scrollAria: 'Cuộn xuống phần giới thiệu',
     switchLanguage: 'Chuyển ngôn ngữ',
+    specialtiesPrefix: 'Chuyên về',
     liveSite: 'Xem website',
     openFigma: 'Mở trong Figma',
     designHeading: 'Thiết kế UI/UX — Figma',

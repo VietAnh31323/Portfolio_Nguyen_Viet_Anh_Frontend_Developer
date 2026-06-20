@@ -22,7 +22,7 @@ export default function Section({
         <Reveal>
           <p className="section-eyebrow">{eyebrow}</p>
           <h2 className="section-title">{title}</h2>
-          <div className="mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-accent to-cyan" />
+          <div className="section-underline mt-4" />
         </Reveal>
         <div className="mt-12">{children}</div>
       </div>
