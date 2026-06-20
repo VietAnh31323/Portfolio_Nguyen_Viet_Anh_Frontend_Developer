@@ -17,7 +17,7 @@ export default function About() {
     >
       <div className="grid gap-10 lg:grid-cols-[1.6fr_1fr]">
         <Reveal>
-          <p className="text-lg leading-relaxed text-slate-300">
+          <p className="text-lg leading-relaxed text-body">
             {t.profile.summary}
           </p>
 
@@ -27,11 +27,11 @@ export default function About() {
                 <CodeIcon className="h-5 w-5" />
               </span>
               <div>
-                <h3 className="font-semibold text-white">
+                <h3 className="font-semibold text-ink">
                   {t.ui.languagesHeading}
                 </h3>
                 {t.languages.map((l) => (
-                  <p key={l} className="mt-1 text-sm text-slate-400">
+                  <p key={l} className="mt-1 text-sm text-muted">
                     {l}
                   </p>
                 ))}
@@ -51,7 +51,7 @@ export default function About() {
                   value={h.value}
                   className="gradient-text min-w-[3.5rem] text-3xl font-extrabold tabular-nums"
                 />
-                <span className="text-sm leading-snug text-slate-400">
+                <span className="text-sm leading-snug text-muted">
                   {h.label}
                 </span>
               </div>

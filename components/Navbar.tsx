@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { navLinks, shared, locales, localeNames } from '@/lib/data';
 import { useLanguage } from './LanguageProvider';
+import ThemeToggle from './ThemeToggle';
 
 export default function Navbar() {
   const { locale, setLocale, t } = useLanguage();
@@ -33,7 +34,7 @@ export default function Navbar() {
       <nav className="container-page flex h-16 items-center justify-between">
         <a
           href="#top"
-          className="flex items-center gap-2 font-mono text-sm font-bold text-white"
+          className="flex items-center gap-2 font-mono text-sm font-bold text-ink"
         >
           <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-accent to-cyan text-bg">
             {initials}
@@ -46,13 +47,16 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:text-white"
+                className="rounded-lg px-3 py-2 text-sm text-muted transition-colors hover:text-ink"
               >
                 {t.ui.nav[link.key]}
               </a>
             </li>
           ))}
           <li className="ml-2">
+            <ThemeToggle />
+          </li>
+          <li>
             <LanguageToggle locale={locale} setLocale={setLocale} label={t.ui.switchLanguage} />
           </li>
           <li>
@@ -66,13 +70,14 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
           <LanguageToggle locale={locale} setLocale={setLocale} label={t.ui.switchLanguage} />
           <button
             type="button"
             aria-label="Toggle menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="grid h-10 w-10 place-items-center rounded-lg border border-border text-white"
+            className="grid h-10 w-10 place-items-center rounded-lg border border-border text-ink"
           >
             <span className="relative block h-4 w-5">
               <span
@@ -107,7 +112,7 @@ export default function Navbar() {
               <a
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="block rounded-lg px-3 py-2.5 text-slate-300 transition-colors hover:bg-surface hover:text-white"
+                className="block rounded-lg px-3 py-2.5 text-body transition-colors hover:bg-surface hover:text-ink"
               >
                 {t.ui.nav[link.key]}
               </a>
@@ -152,7 +157,7 @@ function LanguageToggle({
           className={`rounded-md px-2.5 py-1 text-xs font-semibold transition-colors ${
             locale === l
               ? 'bg-gradient-to-r from-accent to-cyan text-bg'
-              : 'text-slate-400 hover:text-white'
+              : 'text-muted hover:text-ink'
           }`}
         >
           {localeNames[l]}

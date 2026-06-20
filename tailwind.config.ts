@@ -8,15 +8,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: '#0a0a0f',
-        surface: '#12121a',
-        card: '#16161f',
-        border: '#262633',
+        // Theme-aware tokens — values come from CSS variables (see globals.css),
+        // so the same classes adapt to the dark/light theme automatically.
+        bg: 'rgb(var(--c-bg) / <alpha-value>)',
+        surface: 'rgb(var(--c-surface) / <alpha-value>)',
+        card: 'rgb(var(--c-card) / <alpha-value>)',
+        border: 'rgb(var(--c-border) / <alpha-value>)',
+        ink: 'rgb(var(--c-ink) / <alpha-value>)',
+        body: 'rgb(var(--c-body) / <alpha-value>)',
+        muted: 'rgb(var(--c-muted) / <alpha-value>)',
+        subtle: 'rgb(var(--c-subtle) / <alpha-value>)',
         accent: {
-          DEFAULT: '#6366f1',
-          soft: '#818cf8',
+          DEFAULT: 'rgb(var(--c-accent) / <alpha-value>)',
+          soft: 'rgb(var(--c-accent-soft) / <alpha-value>)',
         },
-        cyan: '#22d3ee',
+        cyan: 'rgb(var(--c-cyan) / <alpha-value>)',
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],

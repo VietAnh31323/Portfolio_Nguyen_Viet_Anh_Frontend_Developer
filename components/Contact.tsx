@@ -59,7 +59,7 @@ export default function Contact() {
             <div className="relative">
               <p className="section-eyebrow">{t.ui.sections.contact.eyebrow}</p>
               <h2 className="section-title">{t.ui.sections.contact.title}</h2>
-              <p className="mt-4 max-w-2xl text-lg text-slate-400">
+              <p className="mt-4 max-w-2xl text-lg text-muted">
                 {t.ui.contactIntro}
               </p>
 
@@ -71,10 +71,10 @@ export default function Contact() {
                         <Icon className="h-5 w-5" />
                       </span>
                       <div className="min-w-0">
-                        <p className="text-xs uppercase tracking-wide text-slate-500">
+                        <p className="text-xs uppercase tracking-wide text-subtle">
                           {label}
                         </p>
-                        <p className="truncate font-medium text-white">
+                        <p className="truncate font-medium text-ink">
                           {value}
                         </p>
                       </div>

@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-border py-10">
       <div className="container-page flex flex-col items-center justify-between gap-4 sm:flex-row">
-        <p className="text-sm text-slate-500">
+        <p className="text-sm text-subtle">
           © {shared.name} — {t.ui.builtWith}{' '}
           <span className="text-accent-soft">Next.js</span>,{' '}
           <span className="text-accent-soft">TypeScript</span> &{' '}
@@ -22,7 +22,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="text-slate-500 transition-colors hover:text-white"
+            className="text-subtle transition-colors hover:text-ink"
           >
             <GithubIcon className="h-5 w-5" />
           </a>
@@ -31,14 +31,14 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
-            className="text-slate-500 transition-colors hover:text-white"
+            className="text-subtle transition-colors hover:text-ink"
           >
             <FacebookIcon className="h-5 w-5" />
           </a>
           <a
             href={`mailto:${shared.email}`}
             aria-label="Email"
-            className="text-slate-500 transition-colors hover:text-white"
+            className="text-subtle transition-colors hover:text-ink"
           >
             <MailIcon className="h-5 w-5" />
           </a>

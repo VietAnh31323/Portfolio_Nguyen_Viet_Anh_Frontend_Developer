@@ -74,7 +74,7 @@ export default function Hero() {
       <div className="container-page relative grid items-center gap-12 py-20 lg:grid-cols-[1.4fr_1fr]">
         <div className="animate-fade-up">
           <p className="section-eyebrow font-mono">{t.ui.helloEyebrow}</p>
-          <h1 className="text-4xl font-extrabold leading-tight text-white sm:text-6xl">
+          <h1 className="text-4xl font-extrabold leading-tight text-ink sm:text-6xl">
             {shared.name}
           </h1>
           <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">
@@ -84,7 +84,7 @@ export default function Hero() {
           </h2>
 
           {/* Typewriter specialties */}
-          <p className="mt-3 font-mono text-sm text-slate-400 sm:text-base">
+          <p className="mt-3 font-mono text-sm text-muted sm:text-base">
             {t.ui.specialtiesPrefix}{' '}
             <TypeWriter
               words={shared.specialties}
@@ -92,7 +92,7 @@ export default function Hero() {
             />
           </p>
 
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-400">
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
             {t.profile.tagline}
           </p>
 
@@ -108,7 +108,7 @@ export default function Hero() {
               href={asset(shared.resume)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl border border-border bg-surface px-6 py-3 font-semibold text-white transition-all hover:-translate-y-0.5 hover:border-accent/50"
+              className="inline-flex items-center gap-2 rounded-xl border border-border bg-surface px-6 py-3 font-semibold text-ink transition-all hover:-translate-y-0.5 hover:border-accent/50"
             >
               <DownloadIcon className="h-5 w-5" />
               {t.ui.downloadCV}
@@ -125,7 +125,7 @@ export default function Hero() {
             <SocialLink href={`mailto:${shared.email}`} label="Email">
               <MailIcon className="h-5 w-5" />
             </SocialLink>
-            <span className="ml-1 inline-flex items-center gap-1.5 text-sm text-slate-500">
+            <span className="ml-1 inline-flex items-center gap-1.5 text-sm text-subtle">
               <MapPinIcon className="h-4 w-4" />
               {t.profile.location}
             </span>
@@ -138,7 +138,7 @@ export default function Hero() {
             ref={cardRef}
             className="card-base mx-auto max-w-sm animate-float p-1 shadow-2xl shadow-accent/5 transition-transform duration-200 ease-out"
           >
-            <div className="rounded-[14px] bg-bg/80 p-5 font-mono text-sm">
+            <div className="rounded-[14px] bg-[#0b0b14] p-5 font-mono text-sm text-slate-300">
               <div className="mb-4 flex gap-1.5">
                 <span className="h-3 w-3 rounded-full bg-red-400/80" />
                 <span className="h-3 w-3 rounded-full bg-yellow-400/80" />
@@ -146,21 +146,21 @@ export default function Hero() {
               </div>
               <pre className="whitespace-pre-wrap leading-relaxed">
                 <span className="text-violet-400">const</span>{' '}
-                <span className="text-cyan">dev</span>{' '}
+                <span className="text-[#22d3ee]">dev</span>{' '}
                 <span className="text-slate-500">=</span>{' '}
                 <span className="text-slate-500">{'{'}</span>
                 {'\n  '}
-                <span className="text-accent-soft">name</span>
+                <span className="text-[#818cf8]">name</span>
                 <span className="text-slate-500">:</span>{' '}
                 <span className="text-emerald-300">&apos;Viet Anh&apos;</span>
                 <span className="text-slate-500">,</span>
                 {'\n  '}
-                <span className="text-accent-soft">role</span>
+                <span className="text-[#818cf8]">role</span>
                 <span className="text-slate-500">:</span>{' '}
                 <span className="text-emerald-300">&apos;Frontend&apos;</span>
                 <span className="text-slate-500">,</span>
                 {'\n  '}
-                <span className="text-accent-soft">stack</span>
+                <span className="text-[#818cf8]">stack</span>
                 <span className="text-slate-500">:</span>{' '}
                 <span className="text-slate-500">[</span>
                 <span className="text-emerald-300">&apos;React&apos;</span>
@@ -170,7 +170,7 @@ export default function Hero() {
                 <span className="text-emerald-300">&apos;TS&apos;</span>
                 <span className="text-slate-500">],</span>
                 {'\n  '}
-                <span className="text-accent-soft">focus</span>
+                <span className="text-[#818cf8]">focus</span>
                 <span className="text-slate-500">:</span>{' '}
                 <span className="text-emerald-300">&apos;performance&apos;</span>
                 <span className="text-slate-500">,</span>
@@ -185,7 +185,7 @@ export default function Hero() {
       <a
         href="#about"
         aria-label={t.ui.scrollAria}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-500 transition-colors hover:text-accent-soft"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-subtle transition-colors hover:text-accent-soft"
       >
         <ArrowDownIcon className="h-6 w-6 animate-bounce" />
       </a>
@@ -208,7 +208,7 @@ function SocialLink({
       target={href.startsWith('http') ? '_blank' : undefined}
       rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
       aria-label={label}
-      className="grid h-10 w-10 place-items-center rounded-lg border border-border bg-surface text-slate-400 transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:text-white"
+      className="grid h-10 w-10 place-items-center rounded-lg border border-border bg-surface text-muted transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:text-ink"
     >
       {children}
     </a>

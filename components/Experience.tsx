@@ -29,11 +29,11 @@ export default function Experience() {
 
                 <div className="card-base p-6 hover:border-accent/40">
                   <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                    <h3 className="text-xl font-bold text-white">{exp.role}</h3>
+                    <h3 className="text-xl font-bold text-ink">{exp.role}</h3>
                     <span
                       className={`chip ${
                         exp.current
-                          ? 'border-emerald-500/40 bg-emerald-500/10 text-emerald-300'
+                          ? 'chip-ok'
                           : ''
                       }`}
                     >
@@ -43,7 +43,7 @@ export default function Experience() {
                   <p className="mt-1 font-medium text-accent-soft">
                     {exp.company}
                   </p>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-400">
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
                     {exp.summary}
                   </p>
 
@@ -51,7 +51,7 @@ export default function Experience() {
                     {exp.points.map((point) => (
                       <li
                         key={point}
-                        className="flex gap-2.5 text-sm leading-relaxed text-slate-300"
+                        className="flex gap-2.5 text-sm leading-relaxed text-body"
                       >
                         <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                         {point}

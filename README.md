@@ -8,6 +8,7 @@ A personal portfolio website built with **Next.js**, **TypeScript**, and **Tailw
 
 - ⚡ Next.js 15 (App Router) with full static export (`output: 'export'`)
 - 🌐 Bilingual — English / Tiếng Việt toggle, persisted to `localStorage` (client-side i18n that works with static export)
+- 🌗 Dark / Light theme toggle — CSS-variable design tokens, respects OS preference, no flash on load (persisted)
 - 🎨 Modern dark UI, gradient accents, responsive across all devices
 - 🧩 Reusable, typed React components — content driven from a single data file
 - 🌀 Scroll-reveal animations via the IntersectionObserver API (respects `prefers-reduced-motion`)

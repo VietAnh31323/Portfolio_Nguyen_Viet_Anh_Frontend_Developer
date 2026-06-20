@@ -32,10 +32,10 @@ export default function Projects() {
                       {t.ui.flagship}
                     </span>
                   )}
-                  <h3 className="text-xl font-bold text-white">
+                  <h3 className="text-xl font-bold text-ink">
                     {project.name}
                   </h3>
-                  <p className="mt-0.5 text-sm text-slate-500">{project.org}</p>
+                  <p className="mt-0.5 text-sm text-subtle">{project.org}</p>
                 </div>
                 {project.url && (
                   <a
@@ -43,14 +43,14 @@ export default function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${t.ui.liveSite}: ${project.name}`}
-                    className="text-slate-600 transition-colors group-hover:text-accent-soft"
+                    className="text-subtle transition-colors group-hover:text-accent-soft"
                   >
                     <ArrowUpRightIcon className="h-5 w-5 shrink-0" />
                   </a>
                 )}
               </div>
 
-              <p className="mt-4 text-sm leading-relaxed text-slate-400">
+              <p className="mt-4 text-sm leading-relaxed text-muted">
                 {project.description}
               </p>
 
@@ -82,7 +82,7 @@ export default function Projects() {
       <Reveal className="mt-14">
         <div className="flex items-center gap-3">
           <FigmaLogo className="h-6 w-auto" />
-          <h3 className="text-xl font-bold text-white sm:text-2xl">
+          <h3 className="text-xl font-bold text-ink sm:text-2xl">
             {t.ui.designHeading}
           </h3>
         </div>
@@ -104,18 +104,18 @@ export default function Projects() {
                     <FigmaLogo className="h-5 w-auto" />
                   </span>
                   <div>
-                    <h4 className="text-lg font-bold text-white">
+                    <h4 className="text-lg font-bold text-ink">
                       {design.name}
                     </h4>
-                    <p className="mt-0.5 text-sm text-slate-500">
+                    <p className="mt-0.5 text-sm text-subtle">
                       {design.context}
                     </p>
                   </div>
                 </div>
-                <ArrowUpRightIcon className="h-5 w-5 shrink-0 text-slate-600 transition-colors group-hover:text-accent-soft" />
+                <ArrowUpRightIcon className="h-5 w-5 shrink-0 text-subtle transition-colors group-hover:text-accent-soft" />
               </div>
 
-              <p className="mt-4 text-sm leading-relaxed text-slate-400">
+              <p className="mt-4 text-sm leading-relaxed text-muted">
                 {design.description}
               </p>
 

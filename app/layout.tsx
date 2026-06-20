@@ -44,8 +44,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jbmono.variable}`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${jbmono.variable}`}
+      suppressHydrationWarning
+    >
       <body className="font-sans">
+        {/* Apply the saved/preferred theme before paint to avoid a flash. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('portfolio-theme');if(t==='light'||(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)){document.documentElement.classList.add('light');}}catch(e){}})();`,
+          }}
+        />
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

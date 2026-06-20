@@ -22,13 +22,13 @@ export default function Skills() {
                 <span className="grid h-8 w-8 place-items-center rounded-lg bg-accent/10 text-accent-soft">
                   <SparkleIcon className="h-4 w-4" />
                 </span>
-                <h3 className="font-semibold text-white">{group.title}</h3>
+                <h3 className="font-semibold text-ink">{group.title}</h3>
               </div>
               <div className="flex flex-wrap gap-2">
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="chip transition-colors hover:border-accent/50 hover:text-white"
+                    className="chip transition-colors hover:border-accent/50 hover:text-ink"
                   >
                     {item}
                   </span>
