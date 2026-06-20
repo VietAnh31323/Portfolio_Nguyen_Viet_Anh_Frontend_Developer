@@ -1,0 +1,52 @@
+import { profile, languages } from '@/lib/data';
+import Section from './Section';
+import Reveal from './Reveal';
+import { CodeIcon } from './Icons';
+
+export default function About() {
+  return (
+    <Section id="about" eyebrow="01 — About" title="Who I am">
+      <div className="grid gap-10 lg:grid-cols-[1.6fr_1fr]">
+        <Reveal>
+          <p className="text-lg leading-relaxed text-slate-300">
+            {profile.summary}
+          </p>
+
+          <div className="mt-8 card-base p-5">
+            <div className="flex items-start gap-3">
+              <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-accent/10 text-accent-soft">
+                <CodeIcon className="h-5 w-5" />
+              </span>
+              <div>
+                <h3 className="font-semibold text-white">Languages</h3>
+                {languages.map((l) => (
+                  <p key={l} className="mt-1 text-sm text-slate-400">
+                    {l}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal delay={120}>
+          <div className="grid gap-4">
+            {profile.highlights.map((h) => (
+              <div
+                key={h.label}
+                className="card-base flex items-center gap-4 p-5 hover:border-accent/40"
+              >
+                <span className="gradient-text text-3xl font-extrabold">
+                  {h.value}
+                </span>
+                <span className="text-sm leading-snug text-slate-400">
+                  {h.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </div>
+    </Section>
+  );
+}
