@@ -236,13 +236,13 @@ const en: Dict = {
       url: 'https://vagenari.vn/',
     },
     {
-      name: 'Thuận Đức IVM',
+      name: 'SiegenX',
       org: 'Hazo Media',
       description:
         'Responsive corporate / e-commerce website built and customized on WordPress, with bespoke layouts and interactive effects matching client branding.',
       tags: ['WordPress', 'Responsive', 'UI/UX', 'Figma'],
       highlight: false,
-      url: 'https://thuanducivm.com/',
+      url: 'https://siegenx.com/',
     },
     {
       name: 'NT-Tech',
@@ -452,13 +452,13 @@ const vi: Dict = {
       url: 'https://vagenari.vn/',
     },
     {
-      name: 'Thuận Đức IVM',
+      name: 'SiegenX',
       org: 'Hazo Media',
       description:
         'Website doanh nghiệp / thương mại điện tử responsive được xây dựng và tùy chỉnh trên WordPress, với bố cục riêng và hiệu ứng tương tác bám sát thương hiệu khách hàng.',
       tags: ['WordPress', 'Responsive', 'UI/UX', 'Figma'],
       highlight: false,
-      url: 'https://thuanducivm.com/',
+      url: 'https://siegenx.com/',
     },
     {
       name: 'NT-Tech',
