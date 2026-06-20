@@ -1,13 +1,21 @@
-import { skillGroups } from '@/lib/data';
+'use client';
+
 import Section from './Section';
 import Reveal from './Reveal';
 import { SparkleIcon } from './Icons';
+import { useLanguage } from './LanguageProvider';
 
 export default function Skills() {
+  const { t } = useLanguage();
+
   return (
-    <Section id="skills" eyebrow="04 — Toolbox" title="Skills & technologies">
+    <Section
+      id="skills"
+      eyebrow={t.ui.sections.skills.eyebrow}
+      title={t.ui.sections.skills.title}
+    >
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {skillGroups.map((group, i) => (
+        {t.skillGroups.map((group, i) => (
           <Reveal key={group.title} delay={i * 70}>
             <div className="card-base h-full p-6 hover:border-accent/40">
               <div className="mb-4 flex items-center gap-2.5">

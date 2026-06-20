@@ -1,7 +1,11 @@
 import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
-import { profile } from '@/lib/data';
+import { dict, shared } from '@/lib/data';
+import { LanguageProvider } from '@/components/LanguageProvider';
+
+// Build-time metadata uses the default (English) dictionary.
+const en = dict.en;
 
 const inter = Inter({
   subsets: ['latin'],
@@ -16,8 +20,8 @@ const jbmono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: `${profile.name} — ${profile.title}`,
-  description: profile.summary.slice(0, 160),
+  title: `${shared.name} — ${en.profile.title}`,
+  description: en.profile.summary.slice(0, 160),
   keywords: [
     'Frontend Developer',
     'React',
@@ -26,10 +30,10 @@ export const metadata: Metadata = {
     'Nguyen Viet Anh',
     'Portfolio',
   ],
-  authors: [{ name: profile.name }],
+  authors: [{ name: shared.name }],
   openGraph: {
-    title: `${profile.name} — ${profile.title}`,
-    description: profile.tagline,
+    title: `${shared.name} — ${en.profile.title}`,
+    description: en.profile.tagline,
     type: 'website',
   },
 };
@@ -41,7 +45,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${jbmono.variable}`}>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }

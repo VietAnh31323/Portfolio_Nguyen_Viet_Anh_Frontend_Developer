@@ -7,6 +7,7 @@ A personal portfolio website built with **Next.js**, **TypeScript**, and **Tailw
 ## ✨ Highlights
 
 - ⚡ Next.js 15 (App Router) with full static export (`output: 'export'`)
+- 🌐 Bilingual — English / Tiếng Việt toggle, persisted to `localStorage` (client-side i18n that works with static export)
 - 🎨 Modern dark UI, gradient accents, responsive across all devices
 - 🧩 Reusable, typed React components — content driven from a single data file
 - 🌀 Scroll-reveal animations via the IntersectionObserver API (respects `prefers-reduced-motion`)
@@ -43,7 +44,11 @@ public/       Static assets (CV PDF)
 ## ✏️ Editing content
 
 All text — profile, experience, projects, skills, education — lives in
-[`lib/data.ts`](lib/data.ts). Update that one file and the whole site reflects the change.
+[`lib/data.ts`](lib/data.ts) as a bilingual dictionary (`dict.en` / `dict.vi`),
+with language-neutral atoms (contact links, résumé path) in `shared`. Update that
+one file and both languages stay in sync. The active language is provided through
+[`components/LanguageProvider.tsx`](components/LanguageProvider.tsx) and consumed
+via the `useLanguage()` hook.
 
 ## 📦 Deployment
 

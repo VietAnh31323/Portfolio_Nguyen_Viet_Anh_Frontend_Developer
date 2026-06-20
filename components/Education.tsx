@@ -1,11 +1,20 @@
-import { education } from '@/lib/data';
+'use client';
+
 import Section from './Section';
 import Reveal from './Reveal';
 import { GraduationIcon, StarIcon } from './Icons';
+import { useLanguage } from './LanguageProvider';
 
 export default function Education() {
+  const { t } = useLanguage();
+  const education = t.education;
+
   return (
-    <Section id="education" eyebrow="05 — Background" title="Education & awards">
+    <Section
+      id="education"
+      eyebrow={t.ui.sections.education.eyebrow}
+      title={t.ui.sections.education.title}
+    >
       <div className="grid gap-6 md:grid-cols-2">
         <Reveal>
           <div className="card-base h-full p-6 hover:border-accent/40">
@@ -30,11 +39,13 @@ export default function Education() {
             <span className="grid h-11 w-11 place-items-center rounded-xl bg-amber-500/10 text-amber-300">
               <StarIcon className="h-6 w-6" />
             </span>
-            <h3 className="mt-4 text-lg font-bold text-white">Awards</h3>
+            <h3 className="mt-4 text-lg font-bold text-white">
+              {t.ui.awardsHeading}
+            </h3>
             <p className="mt-1 text-slate-400">{education.award}</p>
             <div className="mt-4">
               <span className="chip border-amber-500/40 bg-amber-500/10 text-amber-300">
-                Scholarship
+                {t.ui.scholarshipChip}
               </span>
             </div>
           </div>

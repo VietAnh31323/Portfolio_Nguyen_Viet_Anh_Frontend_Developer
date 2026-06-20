@@ -1,13 +1,21 @@
-import { projects } from '@/lib/data';
+'use client';
+
 import Section from './Section';
 import Reveal from './Reveal';
 import { ArrowUpRightIcon, StarIcon } from './Icons';
+import { useLanguage } from './LanguageProvider';
 
 export default function Projects() {
+  const { t } = useLanguage();
+
   return (
-    <Section id="projects" eyebrow="03 — Work" title="Featured projects">
+    <Section
+      id="projects"
+      eyebrow={t.ui.sections.projects.eyebrow}
+      title={t.ui.sections.projects.title}
+    >
       <div className="grid gap-6 md:grid-cols-2">
-        {projects.map((project, i) => (
+        {t.projects.map((project, i) => (
           <Reveal
             key={project.name}
             delay={i * 80}
@@ -20,7 +28,7 @@ export default function Projects() {
                   {project.highlight && (
                     <span className="mb-2 inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent-soft">
                       <StarIcon className="h-3.5 w-3.5" />
-                      Flagship
+                      {t.ui.flagship}
                     </span>
                   )}
                   <h3 className="text-xl font-bold text-white">

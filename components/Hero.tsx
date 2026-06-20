@@ -1,5 +1,8 @@
-import { profile } from '@/lib/data';
+'use client';
+
+import { shared } from '@/lib/data';
 import { asset } from '@/lib/asset';
+import { useLanguage } from './LanguageProvider';
 import {
   ArrowDownIcon,
   DownloadIcon,
@@ -10,6 +13,8 @@ import {
 } from './Icons';
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="top"
@@ -21,17 +26,17 @@ export default function Hero() {
 
       <div className="container-page relative grid items-center gap-12 py-20 lg:grid-cols-[1.4fr_1fr]">
         <div className="animate-fade-up">
-          <p className="section-eyebrow font-mono">{'<'} Hello, world {'/>'}</p>
+          <p className="section-eyebrow font-mono">{t.ui.helloEyebrow}</p>
           <h1 className="text-4xl font-extrabold leading-tight text-white sm:text-6xl">
-            {profile.name}
+            {shared.name}
           </h1>
           <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">
             <span className="gradient-text animate-gradient-pan">
-              {profile.title}
+              {t.profile.title}
             </span>
           </h2>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-400">
-            {profile.tagline}
+            {t.profile.tagline}
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -40,32 +45,32 @@ export default function Hero() {
               className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent to-cyan px-6 py-3 font-semibold text-bg transition-transform hover:scale-[1.03]"
             >
               <MailIcon className="h-5 w-5" />
-              Contact me
+              {t.ui.contactMe}
             </a>
             <a
-              href={asset('/NGUYEN-VIET-ANH-FRONTEND-en.pdf')}
+              href={asset(shared.resume)}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-xl border border-border bg-surface px-6 py-3 font-semibold text-white transition-colors hover:border-accent/50"
             >
               <DownloadIcon className="h-5 w-5" />
-              Download CV
+              {t.ui.downloadCV}
             </a>
           </div>
 
           <div className="mt-8 flex items-center gap-4">
-            <SocialLink href={profile.github} label="GitHub">
+            <SocialLink href={shared.github} label="GitHub">
               <GithubIcon className="h-5 w-5" />
             </SocialLink>
-            <SocialLink href={profile.facebook} label="Facebook">
+            <SocialLink href={shared.facebook} label="Facebook">
               <FacebookIcon className="h-5 w-5" />
             </SocialLink>
-            <SocialLink href={`mailto:${profile.email}`} label="Email">
+            <SocialLink href={`mailto:${shared.email}`} label="Email">
               <MailIcon className="h-5 w-5" />
             </SocialLink>
             <span className="ml-1 inline-flex items-center gap-1.5 text-sm text-slate-500">
               <MapPinIcon className="h-4 w-4" />
-              {profile.location}
+              {t.profile.location}
             </span>
           </div>
         </div>
@@ -119,7 +124,7 @@ export default function Hero() {
 
       <a
         href="#about"
-        aria-label="Scroll to about"
+        aria-label={t.ui.scrollAria}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-500 transition-colors hover:text-accent-soft"
       >
         <ArrowDownIcon className="h-6 w-6 animate-bounce" />

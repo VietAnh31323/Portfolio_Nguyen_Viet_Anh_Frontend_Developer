@@ -1,17 +1,25 @@
-import { experiences } from '@/lib/data';
+'use client';
+
 import Section from './Section';
 import Reveal from './Reveal';
 import { BriefcaseIcon } from './Icons';
+import { useLanguage } from './LanguageProvider';
 
 export default function Experience() {
+  const { t } = useLanguage();
+
   return (
-    <Section id="experience" eyebrow="02 — Career" title="Work experience">
+    <Section
+      id="experience"
+      eyebrow={t.ui.sections.experience.eyebrow}
+      title={t.ui.sections.experience.title}
+    >
       <div className="relative">
         {/* Timeline rail */}
         <div className="absolute left-4 top-2 bottom-2 w-px bg-gradient-to-b from-accent/60 via-border to-transparent md:left-5" />
 
         <div className="space-y-8">
-          {experiences.map((exp, i) => (
+          {t.experiences.map((exp, i) => (
             <Reveal key={exp.company} delay={i * 80} as="article">
               <div className="relative pl-12 md:pl-16">
                 {/* Node */}
@@ -21,9 +29,7 @@ export default function Experience() {
 
                 <div className="card-base p-6 hover:border-accent/40">
                   <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                    <h3 className="text-xl font-bold text-white">
-                      {exp.role}
-                    </h3>
+                    <h3 className="text-xl font-bold text-white">{exp.role}</h3>
                     <span
                       className={`chip ${
                         exp.current
