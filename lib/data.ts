@@ -60,6 +60,17 @@ type ProjectItem = {
   description: string;
   tags: string[];
   highlight: boolean;
+  /** Optional live URL — renders a "Live site" button and makes the card a link. */
+  url?: string;
+};
+
+type DesignItem = {
+  name: string;
+  context: string;
+  description: string;
+  /** Figma file URL. */
+  href: string;
+  tags: string[];
 };
 
 type SkillGroup = { title: string; items: string[] };
@@ -76,6 +87,7 @@ export type Dict = {
   };
   experiences: ExperienceItem[];
   projects: ProjectItem[];
+  designs: DesignItem[];
   skillGroups: SkillGroup[];
   education: {
     school: string;
@@ -94,6 +106,9 @@ export type Dict = {
     helloEyebrow: string;
     scrollAria: string;
     switchLanguage: string;
+    liveSite: string;
+    openFigma: string;
+    designHeading: string;
     flagship: string;
     languagesHeading: string;
     awardsHeading: string;
@@ -184,6 +199,33 @@ const en: Dict = {
       highlight: true,
     },
     {
+      name: 'LALAMOS',
+      org: 'Hazo Media',
+      description:
+        'Responsive e-commerce site for a Vietnamese natural skincare brand — product catalog, cart, customer accounts, and promotions, built and customized on WordPress.',
+      tags: ['WordPress', 'WooCommerce', 'E-commerce', 'Responsive'],
+      highlight: false,
+      url: 'https://lalamos.com.vn/',
+    },
+    {
+      name: 'Balanza Retreat',
+      org: 'Hazo Media',
+      description:
+        'Hospitality website for a luxury retreat in Phú Thọ — room catalog, booking flow, services, and editorial content, with bespoke layouts and interactive effects on WordPress.',
+      tags: ['WordPress', 'Booking', 'UI/UX', 'Responsive'],
+      highlight: false,
+      url: 'https://balanza.com.vn/',
+    },
+    {
+      name: 'Vagenari',
+      org: 'Hazo Media',
+      description:
+        'E-commerce storefront for a premium watch-strap brand — extensive brand/model catalog, product filtering, customer reviews, and a blog, built on WordPress.',
+      tags: ['WordPress', 'WooCommerce', 'E-commerce', 'SEO'],
+      highlight: false,
+      url: 'https://vagenari.vn/',
+    },
+    {
       name: 'Thuận Đức IVM',
       org: 'Hazo Media',
       description:
@@ -198,6 +240,24 @@ const en: Dict = {
         'Marketing and landing-page site on WordPress, cross-device compatible, with custom interactive components and design assets crafted in Figma & Photoshop.',
       tags: ['WordPress', 'Landing Page', 'SEO', 'Design'],
       highlight: false,
+    },
+  ],
+  designs: [
+    {
+      name: 'Qingwa Cha',
+      context: 'Brand & Web UI · Figma',
+      description:
+        'End-to-end UI/UX design for a tea brand concept — visual identity direction, layout system, and high-fidelity web screens designed in Figma.',
+      href: 'https://www.figma.com/design/Yre1TmXIaGQjXVHrORuBPg/Qingwa-Cha?node-id=0-1&t=mYMiqUuYapHwkbiQ-1',
+      tags: ['Figma', 'UI/UX', 'Web Design', 'Visual Design'],
+    },
+    {
+      name: 'SiegenX',
+      context: 'Product / Web UI · Figma',
+      description:
+        'Product and landing-page UI designed in Figma — component-driven layouts, responsive structure, and a consistent visual system from wireframe to high-fidelity mockup.',
+      href: 'https://www.figma.com/design/t3YFqvkyuWLfRzdXQSluo3/SiegenX?node-id=0-1&t=trdskU8feV69NWV8-1',
+      tags: ['Figma', 'UI/UX', 'Landing Page', 'Design System'],
     },
   ],
   skillGroups: [
@@ -258,6 +318,9 @@ const en: Dict = {
     helloEyebrow: '< Hello, world />',
     scrollAria: 'Scroll to about',
     switchLanguage: 'Switch language',
+    liveSite: 'Live site',
+    openFigma: 'Open in Figma',
+    designHeading: 'UI/UX Design — Figma',
     flagship: 'Flagship',
     languagesHeading: 'Languages',
     awardsHeading: 'Awards',
@@ -349,6 +412,33 @@ const vi: Dict = {
       highlight: true,
     },
     {
+      name: 'LALAMOS',
+      org: 'Hazo Media',
+      description:
+        'Website thương mại điện tử responsive cho thương hiệu mỹ phẩm thiên nhiên Việt Nam — danh mục sản phẩm, giỏ hàng, tài khoản khách hàng và khuyến mãi, xây dựng và tùy chỉnh trên WordPress.',
+      tags: ['WordPress', 'WooCommerce', 'E-commerce', 'Responsive'],
+      highlight: false,
+      url: 'https://lalamos.com.vn/',
+    },
+    {
+      name: 'Balanza Retreat',
+      org: 'Hazo Media',
+      description:
+        'Website cho khu nghỉ dưỡng cao cấp tại Phú Thọ — danh mục phòng, luồng đặt phòng, dịch vụ và nội dung bài viết, với bố cục riêng và hiệu ứng tương tác trên WordPress.',
+      tags: ['WordPress', 'Booking', 'UI/UX', 'Responsive'],
+      highlight: false,
+      url: 'https://balanza.com.vn/',
+    },
+    {
+      name: 'Vagenari',
+      org: 'Hazo Media',
+      description:
+        'Gian hàng thương mại điện tử cho thương hiệu dây đồng hồ cao cấp — danh mục theo thương hiệu/mẫu, lọc sản phẩm, đánh giá khách hàng và blog, xây dựng trên WordPress.',
+      tags: ['WordPress', 'WooCommerce', 'E-commerce', 'SEO'],
+      highlight: false,
+      url: 'https://vagenari.vn/',
+    },
+    {
       name: 'Thuận Đức IVM',
       org: 'Hazo Media',
       description:
@@ -363,6 +453,24 @@ const vi: Dict = {
         'Website marketing và landing page trên WordPress, tương thích đa thiết bị, với các component tương tác tùy chỉnh và ấn phẩm thiết kế được thực hiện bằng Figma & Photoshop.',
       tags: ['WordPress', 'Landing Page', 'SEO', 'Design'],
       highlight: false,
+    },
+  ],
+  designs: [
+    {
+      name: 'Qingwa Cha',
+      context: 'Thương hiệu & Web UI · Figma',
+      description:
+        'Thiết kế UI/UX hoàn chỉnh cho ý tưởng thương hiệu trà — định hướng nhận diện hình ảnh, hệ thống bố cục và các màn hình web độ trung thực cao được thiết kế trên Figma.',
+      href: 'https://www.figma.com/design/Yre1TmXIaGQjXVHrORuBPg/Qingwa-Cha?node-id=0-1&t=mYMiqUuYapHwkbiQ-1',
+      tags: ['Figma', 'UI/UX', 'Web Design', 'Visual Design'],
+    },
+    {
+      name: 'SiegenX',
+      context: 'Sản phẩm / Web UI · Figma',
+      description:
+        'Thiết kế giao diện sản phẩm và landing page trên Figma — bố cục theo component, cấu trúc responsive và hệ thống hình ảnh nhất quán từ wireframe đến mockup độ trung thực cao.',
+      href: 'https://www.figma.com/design/t3YFqvkyuWLfRzdXQSluo3/SiegenX?node-id=0-1&t=trdskU8feV69NWV8-1',
+      tags: ['Figma', 'UI/UX', 'Landing Page', 'Design System'],
     },
   ],
   skillGroups: [
@@ -423,6 +531,9 @@ const vi: Dict = {
     helloEyebrow: '< Hello, world />',
     scrollAria: 'Cuộn xuống phần giới thiệu',
     switchLanguage: 'Chuyển ngôn ngữ',
+    liveSite: 'Xem website',
+    openFigma: 'Mở trong Figma',
+    designHeading: 'Thiết kế UI/UX — Figma',
     flagship: 'Chủ lực',
     languagesHeading: 'Ngôn ngữ',
     awardsHeading: 'Giải thưởng',
