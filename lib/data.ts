@@ -147,12 +147,12 @@ const en: Dict = {
   profile: {
     title: 'Frontend Developer',
     tagline:
-      'I build high-performance, accessible web apps with React & Next.js.',
+      "I'm a Frontend Developer who builds high-performance, accessible web applications with React, Next.js, and TypeScript — from responsive interfaces to large-scale ERP dashboards, with a focus on SSR, clean architecture, and great user experience.",
     location: 'Ha Dong, Ha Noi',
     summary:
       'Frontend Developer with hands-on experience in TypeScript, React, and Next.js, specializing in Server-Side Rendering (SSR), Static Site Generation (SSG/ISR), and modern caching strategies to build high-performance web applications. Skilled in developing responsive user interfaces, integrating REST APIs, optimizing SEO, and implementing efficient data-fetching solutions such as SWR and React Query. Passionate about expanding into backend development and full-stack architecture, with a strong interest in scalable software design and web performance optimization.',
     highlights: [
-      { value: '1.5+', label: 'Years building for the web' },
+      { value: '2+', label: 'Years building for the web' },
       { value: 'ERP', label: 'Enterprise modules shipped' },
       { value: '3.4/4', label: 'University GPA' },
     ],
@@ -186,7 +186,7 @@ const en: Dict = {
     {
       company: 'Hazo Media',
       role: 'WordPress Developer',
-      period: '8/2024 – 1/2025',
+      period: '5/2024 – 1/2025',
       current: false,
       summary:
         'Delivered responsive e-commerce websites and landing pages on WordPress, with custom features and pixel-accurate UI from design files.',
@@ -363,12 +363,12 @@ const vi: Dict = {
   profile: {
     title: 'Lập trình viên Frontend',
     tagline:
-      'Tôi xây dựng các ứng dụng web hiệu năng cao với React & Next.js.',
+      'Tôi là lập trình viên Frontend, xây dựng các ứng dụng web hiệu năng cao và dễ tiếp cận với React, Next.js và TypeScript — từ giao diện responsive đến những hệ thống ERP quy mô lớn, chú trọng SSR, kiến trúc gọn gàng và trải nghiệm người dùng tốt.',
     location: 'Hà Đông, Hà Nội',
     summary:
       'Lập trình viên Frontend với kinh nghiệm thực tế về TypeScript, React và Next.js, chuyên sâu về Server-Side Rendering (SSR), Static Site Generation (SSG/ISR) và các chiến lược caching hiện đại để xây dựng những ứng dụng web hiệu năng cao. Thành thạo phát triển giao diện người dùng responsive, tích hợp REST API, tối ưu SEO và triển khai các giải pháp data-fetching hiệu quả như SWR và React Query. Đam mê mở rộng sang phát triển backend và kiến trúc full-stack, với mối quan tâm lớn đến thiết kế phần mềm có khả năng mở rộng và tối ưu hiệu năng web.',
     highlights: [
-      { value: '1.5+', label: 'Năm kinh nghiệm phát triển web' },
+      { value: '2+', label: 'Năm kinh nghiệm phát triển web' },
       { value: 'ERP', label: 'Module hệ thống ERP đã phát triển' },
       { value: '3.4/4', label: 'Điểm GPA đại học' },
     ],
@@ -402,7 +402,7 @@ const vi: Dict = {
     {
       company: 'Hazo Media',
       role: 'Lập trình viên WordPress',
-      period: '8/2024 – 1/2025',
+      period: '5/2024 – 1/2025',
       current: false,
       summary:
         'Xây dựng các website thương mại điện tử và landing page responsive trên WordPress, với các tính năng tùy chỉnh và giao diện bám sát thiết kế.',
